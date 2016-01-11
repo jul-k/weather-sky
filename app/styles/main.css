@@ -1,0 +1,55 @@
+body {
+  background: rgba(183,222,237,1);
+  background: url(../images/bg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: 'Cabin Sketch', sans-serif;
+    color: #000;
+}
+
+.current {
+    /*padding-left: 22%;
+    background-color: rgba(255, 0, 0, 0.5);*/
+}
+
+.effect {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10%;
+    margin-top: 30px;
+    width: 200px;
+    vertical-align: middle;
+    -webkit-box-shadow: 7px 9px 46px 0px rgba(94,94,94,1);
+    -moz-box-shadow: 7px 9px 46px 0px rgba(94,94,94,1);
+    box-shadow: 7px 9px 46px 0px rgba(94,94,94,1);
+}
+
+h3 {
+    text-transform: uppercase;
+    color: #894D4D;
+}
+
+.current h3 {
+    margin-top: 20px;
+}
+
+h3.day {
+    color: #36369C;
+}
+
+img {
+    width: 30px;
+    height: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .effect {
+        width: 270px;
+    }
+}
