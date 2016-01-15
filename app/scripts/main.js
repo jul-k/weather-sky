@@ -2,56 +2,94 @@ $(function() {
     $('.effect').matchHeight({
         target: $('.height-block')
     });
-    getLocation();
-    console.log("Ready?")
+
+    $.when(getLocation())
+        .fail(Fail)
+        .then(getWeatherForLocation)
+        .then(updateLocalWeather);
+
+    var cities = document.getElementsByClassName("another-city");
+
+    Array.prototype.slice.call(cities).map(loadWeather);
 });
 
-var geocodingAPI,
-    lon,
-    lat;
+var yourCity = document.getElementsByTagName("h3")[0];
+var wind = document.getElementsByTagName("h5")[0];
+var temperature = document.getElementsByTagName("h2")[0];
+var main = document.getElementsByTagName("p")[0];
+var keyApi = "e35bf81be57b793b935696723cd40c65";
 
-var x = document.getElementById("current");
+function Fail(error) {
+    console.error(error);
+};
+
+function loadWeather(cityElem) {
+    var cityApiUrl = "http://api.openweathermap.org/data/2.5/weather?id=" +
+        cityElem.getAttribute("data-id") +
+        "&APPID=" + keyApi;
+
+    function getWeatherForCity() {
+        var deferred = $.Deferred();
+        $.getJSON(cityApiUrl, deferred.resolve).fail(deferred.reject);
+        return deferred.promise();
+    };
+
+    function updateView(data) {
+        cityElem.childNodes[1].innerHTML = data.name;
+        cityElem.childNodes[3].innerHTML = parseInt(data.wind.speed) + ' m/s';
+        cityElem.childNodes[5].innerHTML = parseInt(data.main.temp - 273.15) +
+            " C";
+        cityElem.childNodes[7].innerHTML = data.weather[0].main;
+    }
+
+    $.when(getWeatherForCity())
+        .then(updateView);
+};
+
+function updateAnotherCityWeather(weather) {
+
+};
 
 function getLocation() {
+    var deferred = $.Deferred();
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(saveCoord);
+        navigator.geolocation.getCurrentPosition(deferred.resolve, deferred.reject);
     } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
+    return deferred.promise();
 };
 
+function getWeatherForLocation(position) {
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
 
-function saveCoord(position) {
-    console.log("My positions", position);
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-}
+    var url = makeApiUrl(lon, lat);
+    var deferred = $.Deferred();
+    $.getJSON(url, deferred.resolve).fail(deferred.reject);
+    return deferred.promise();
+};
+
+function updateLocalWeather(weather) {
+    yourCity.innerHTML = weather.name;
+    wind.innerHTML = parseInt(weather.wind.speed) + ' m/s';
+    temperature.innerHTML = parseInt(weather.main.temp - 273.15) + " C";
+    main.innerHTML = weather.weather[0].main;
+};
 
 function makeApiUrl(lon, lat, appId) {
-    appId = appId || "e35bf81be57b793b935696723cd40c65";
-    geocodingAPI = "http://api.openweathermap.org/data/2.5/weather?lat=" +
+    appId = appId || keyApi;
+    var geocodingAPI = "http://api.openweathermap.org/data/2.5/weather?lat=" +
         lat +
         "&lon=" +
         lon +
         "&APPID=" +
         appId;
+
+    console.log(geocodingAPI);
     return geocodingAPI;
 };
 
-function urlOfMyLocation() {
-    return makeApiUrl(lon, lat);
-}
-
-$('button').click(function() {
-    var url = urlOfMyLocation();
-    $.getJSON(url, function(json) {
-
-        // Set the variables from the results array
-        var city = json.name;
-
-        x.innerHTML = 'Your city is: ', city;
-    });
-});
 
 function showError(error) {
     switch (error.code) {
