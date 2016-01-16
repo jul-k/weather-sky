@@ -306,23 +306,35 @@ module.exports = function(grunt) {
         copy: {
             dist: {
                 files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= config.app %>',
-                    dest: '<%= config.dist %>',
-                    src: [
-                        '*.{ico,png,txt}',
-                        'images/{,*/}*.webp',
-                        '{,*/}*.html',
-                        'styles/fonts/{,*/}*.*'
-                    ]
-                }, {
-                    expand: true,
-                    dot: true,
-                    cwd: 'bower_components/bootstrap/dist',
-                    src: 'fonts/*',
-                    dest: '<%= config.dist %>'
-                }]
+                        expand: true,
+                        dot: true,
+                        cwd: '<%= config.app %>',
+                        dest: '<%= config.dist %>',
+                        src: [
+                            '*.{ico,png,txt}',
+                            'images/{,*/}*.webp',
+                            '{,*/}*.html',
+                            'styles/fonts/{,*/}*.*'
+                        ]
+                    }, {
+                        expand: true,
+                        dot: true,
+                        cwd: 'bower_components/bootstrap/dist',
+                        src: 'fonts/*',
+                        dest: '<%= config.dist %>'
+                    }, {
+                        expand: true,
+                        cwd: '<%= config.app %>/images',
+                        src: '{,*/}*.jpg',
+                        dest: '<%= config.dist %>/images'
+                    }, {
+                        expand: true,
+                        cwd: '<%= config.app %>/images',
+                        src: '{,*/}*.png',
+                        dest: '<%= config.dist %>/images'
+                    }
+
+                ]
             },
             styles: {
                 expand: true,
