@@ -1,7 +1,7 @@
 function forecastUrl(lon, lat, days) {
     days = days || 4
     var geocodingDailyApi =
-        "http://api.openweathermap.org/data/2.5/forecast/daily?lat=" +
+        "https://weather-sky.herokuapp.com/data/2.5/forecast/daily?lat=" +
         lat +
         "&lon=" + lon +
         "&APPID=" + keyApi +
