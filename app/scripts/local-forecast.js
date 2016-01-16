@@ -27,7 +27,6 @@ function renderForecast(forecast) {
         console.log(pair);
         var el = pair[0];
         var weather = pair[1];
-
         var formattedDate = moment.unix(weather.dt).format("ll");
 
         el.childNodes[1].innerHTML = formattedDate;

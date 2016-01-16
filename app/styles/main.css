@@ -7,7 +7,7 @@ html {
 body {
   height: 100%;
   overflow: auto;
-  background: rgba(183,222,237,1);
+  background-color: #A4B5DF;
   background: url(../images/bg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -100,6 +100,17 @@ h1 {
     width: 40px;
 }
 
+.local {
+    position: relative;
+}
+
+.local img {
+    width: 90px;
+    position: absolute;
+    right: 10px;
+    bottom: 30px;
+}
+
 .effect {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10%;
@@ -117,7 +128,7 @@ h3 {
     color: #894D4D;
 }
 
-h3.day {
+h3.day, .local h3 {
     color: #36369C;
 }
 

@@ -31,6 +31,18 @@ function getWeatherForLocation(position) {
 };
 
 function updateLocalWeather(weather) {
+    var iconImg = $("img").appendTo(".local");
+    var icons = {
+        "Clouds": "images/clouds.svg",
+        "Clear": "images/clear.svg",
+        "Snow": "images/snow.svg",
+        "Rain": "images/rain.svg",
+        "Mist": "images/mist.svg",
+    }
+
+    var type = weather.weather[0].main;
+    iconImg.attr("src", icons[type]);
+
     yourCity.innerHTML = weather.name;
     wind.innerHTML = parseInt(weather.wind.speed) + ' m/s';
     temperature.innerHTML = parseInt(weather.main.temp - 273.15) + " C";
