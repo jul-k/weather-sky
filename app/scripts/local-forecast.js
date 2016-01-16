@@ -38,5 +38,6 @@ function renderForecast(forecast) {
             " C";
         el.childNodes[7].innerHTML = weather.weather[0].main;
 
+        $(el).find(".loader").hide();
     })
 }

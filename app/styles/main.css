@@ -22,14 +22,6 @@ body {
     color: #000;
 }
 
-div.effect + div.loader {
-    display: none;
-}
-
-div.effect:empty + div.loader {
-    display: block;
-}
-
 .loader:before,
 .loader:after,
 .loader {

@@ -15,6 +15,17 @@ function loadWeather(cityElem) {
         cityElem.childNodes[5].innerHTML = parseInt(data.main.temp - 273.15) +
             " C";
         cityElem.childNodes[7].innerHTML = data.weather[0].main;
+
+        $(cityElem).find(".loader").hide();
+    }
+
+    function delay(val) {
+        // body...
+        var deferred = $.Deferred();
+        setTimeout(function() {
+            deferred.resolve(val);
+        }, 10000 * Math.random());
+        return deferred.promise();
     }
 
     $.when(getWeatherForCity())

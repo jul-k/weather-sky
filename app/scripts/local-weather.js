@@ -35,6 +35,8 @@ function updateLocalWeather(weather) {
     wind.innerHTML = parseInt(weather.wind.speed) + ' m/s';
     temperature.innerHTML = parseInt(weather.main.temp - 273.15) + " C";
     main.innerHTML = weather.weather[0].main;
+
+    $('.local').find(".loader").hide();
 };
 
 function makeApiUrl(lon, lat, appId) {
