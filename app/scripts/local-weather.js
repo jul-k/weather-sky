@@ -31,7 +31,8 @@ function getWeatherForLocation(position) {
 };
 
 function updateLocalWeather(weather) {
-    var iconImg = $("img").appendTo(".local");
+    var iconImg = $('<img src="">');
+    iconImg.appendTo(".local");
     var icons = {
         "Clouds": "images/clouds.svg",
         "Clear": "images/clear.svg",
