@@ -37,15 +37,16 @@
         </div>
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block" id='current'>
-            <h3>your weather</h3>
+          <div class="effect center-block">
+            <h3></h3>
             <h5></h5>
             <h2></h2>
             <p></p>
           </div>
+          <div class="loader"></div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block height-block daily-forecast">
+          <div class="effect center-block daily-forecast">
             <h3 class="day"></h3>
             <h5></h5>
             <h2></h2>
@@ -53,7 +54,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block height-block daily-forecast">
+          <div class="effect center-block daily-forecast">
             <h3 class="day"></h3>
             <h5></h5>
             <h2></h2>
@@ -61,7 +62,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block height-block daily-forecast">
+          <div class="effect center-block daily-forecast">
             <h3 class="day"></h3>
             <h5></h5>
             <h2></h2>
@@ -72,7 +73,7 @@
 
       <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12" >
-          <div class="effect center-block height-block another-city" data-id="5128638">
+          <div class="effect center-block another-city" data-id="5128638">
             <h3></h3>
             <p></p>
             <h2></h2>
@@ -80,7 +81,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block height-block another-city" data-id="2643743">
+          <div class="effect center-block another-city" data-id="2643743">
             <h3></h3>
             <p></p>
             <h2></h2>
@@ -88,7 +89,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block height-block another-city" data-id="6619279">
+          <div class="effect center-block another-city" data-id="6619279">
             <h3></h3>
             <p></p>
             <h2></h2>
@@ -96,7 +97,7 @@
           </div>
         </div>
         <div class="col-md-3 col-sm-6 col-xs-12">
-          <div class="effect center-block height-block another-city" data-id="1850147">
+          <div class="effect center-block another-city" data-id="1850147">
             <h3></h3>
             <p></p>
             <h2></h2>
@@ -135,6 +136,9 @@
 
 
     <!-- build:js scripts/main.js -->
+    <script src="scripts/weather-for-other-cities.js"></script>
+    <script src="scripts/local-weather.js"></script>
+    <script src="scripts/local-forecast.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
 
