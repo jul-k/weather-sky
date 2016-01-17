@@ -40,14 +40,13 @@ function updateLocalWeather(weather) {
         "Rain": "images/rain.svg",
         "Mist": "images/mist.svg",
     }
-
     var type = weather.weather[0].main;
     iconImg.attr("src", icons[type]);
 
     yourCity.innerHTML = weather.name;
     wind.innerHTML = parseInt(weather.wind.speed) + ' m/s';
-    temperature.innerHTML = parseInt(weather.main.temp - 273.15) + " C";
-    main.innerHTML = weather.weather[0].main;
+    temperature.innerHTML = parseInt(weather.main.temp - 273.15) + " &#176;C";
+    main.innerHTML = (weather.weather[0].main).toUpperCase();
 
     $('.local').find(".loader").hide();
 };
@@ -69,16 +68,20 @@ function makeApiUrl(lon, lat, appId) {
 function showError(error) {
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
+            $(".row:nth-child(2)").hide();
+            notie.alert(3, 'User denied the request for Geolocation.', 4);
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
+            $(".row:nth-child(2)").hide();
+            notie.alert(3, 'Location information is unavailable.', 4);
             break;
         case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
+            $(".row:nth-child(2)").hide();
+            notie.alert(3, 'The request to get user location timed out.', 4);
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
+            $(".row:nth-child(2)").hide();
+            notie.alert(3, 'An unknown error occurred.', 4);
             break;
     }
 };

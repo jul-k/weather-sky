@@ -6,7 +6,8 @@
     "normalize-css": "normalize.css#~3.0.3",
     "matchHeight": "matchheight#~0.7.0",
     "underscore": "~1.8.3",
-    "moment": "momentjs#~2.11.1"
+    "moment": "momentjs#~2.11.1",
+    "notie": "*"
   },
   "overrides": {
     "bootstrap": {

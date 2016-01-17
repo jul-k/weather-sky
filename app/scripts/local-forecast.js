@@ -29,13 +29,26 @@ function renderForecast(forecast) {
         var weather = pair[1];
         var formattedDate = moment.unix(weather.dt).format("ll");
 
+        var iconImg = $('<img src="">');
+        iconImg.appendTo(el);
+        var icons = {
+            "Clouds": "images/clouds.svg",
+            "Clear": "images/clear.svg",
+            "Snow": "images/snow.svg",
+            "Rain": "images/rain.svg",
+            "Mist": "images/mist.svg",
+        }
+
+        var type = weather.weather[0].main;
+        iconImg.attr("src", icons[type]);
+
         el.childNodes[1].innerHTML = formattedDate;
         el.childNodes[3].innerHTML = parseInt(weather.speed) +
             ' m/s';
         el.childNodes[5].innerHTML = parseInt(weather.temp.day -
                 273.15) +
-            " C";
-        el.childNodes[7].innerHTML = weather.weather[0].main;
+            "  &#176;C";
+        el.childNodes[7].innerHTML = (weather.weather[0].main).toUpperCase();
 
         $(el).find(".loader").hide();
     })

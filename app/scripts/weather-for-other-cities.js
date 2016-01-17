@@ -10,11 +10,24 @@ function loadWeather(cityElem) {
     };
 
     function updateView(data) {
+        var iconImg = $('<img src="">');
+        iconImg.appendTo(cityElem);
+        var icons = {
+            "Clouds": "images/clouds.svg",
+            "Clear": "images/clear.svg",
+            "Snow": "images/snow.svg",
+            "Rain": "images/rain.svg",
+            "Mist": "images/mist.svg",
+        }
+
+        var type = data.weather[0].main;
+        iconImg.attr("src", icons[type]);
+
         cityElem.childNodes[1].innerHTML = data.name;
         cityElem.childNodes[3].innerHTML = parseInt(data.wind.speed) + ' m/s';
         cityElem.childNodes[5].innerHTML = parseInt(data.main.temp - 273.15) +
-            " C";
-        cityElem.childNodes[7].innerHTML = data.weather[0].main;
+            "  &#176;C";
+        cityElem.childNodes[7].innerHTML = (data.weather[0].main).toUpperCase();
 
         $(cityElem).find(".loader").hide();
     }

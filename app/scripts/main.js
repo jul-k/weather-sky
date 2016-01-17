@@ -3,7 +3,7 @@ $(function() {
     Array.prototype.slice.call(cities).map(loadWeather);
 
     $.when(getLocation())
-        .fail(Fail)
+        .fail(showError)
         .then(getWeatherForLocation)
         .then(updateLocalWeather);
 

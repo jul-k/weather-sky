@@ -100,11 +100,11 @@ h1 {
     width: 40px;
 }
 
-.local {
+.local, .another-city, .daily-forecast {
     position: relative;
 }
 
-.local img {
+.local img, .another-city img, .daily-forecast img {
     width: 90px;
     position: absolute;
     right: 10px;
@@ -132,11 +132,6 @@ h3.day, .local h3 {
     color: #36369C;
 }
 
-img {
-    width: 30px;
-    height: auto;
-}
-
 @media screen and (max-width: 767px) {
     .effect {
         width: 270px;
@@ -146,6 +141,12 @@ img {
 
 @media screen and (max-width: 460px) {
     .github-corner {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 365px) {
+    .text-center img {
         display: none;
     }
 }
