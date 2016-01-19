@@ -18,6 +18,7 @@ function loadWeather(cityElem) {
             "Snow": "images/snow.svg",
             "Rain": "images/rain.svg",
             "Mist": "images/mist.svg",
+            "Haze": "images/mist.svg"
         }
 
         var type = data.weather[0].main;

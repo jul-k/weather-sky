@@ -39,6 +39,7 @@ function updateLocalWeather(weather) {
         "Snow": "images/snow.svg",
         "Rain": "images/rain.svg",
         "Mist": "images/mist.svg",
+        "Haze": "images/mist.svg"
     }
     var type = weather.weather[0].main;
     iconImg.attr("src", icons[type]);
