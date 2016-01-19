@@ -55,7 +55,7 @@ function updateLocalWeather(weather) {
 function makeApiUrl(lon, lat, appId) {
     appId = appId || keyApi;
     var geocodingAPI =
-        "https://weather-sky.herokuapp.com/data/2.5/weather?lat=" +
+        "https://api-https.herokuapp.com/openweathermap/data/2.5/weather?lat=" +
         lat +
         "&lon=" +
         lon +

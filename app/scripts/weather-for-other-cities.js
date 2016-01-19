@@ -1,5 +1,5 @@
 function loadWeather(cityElem) {
-    var cityApiUrl = "https://weather-sky.herokuapp.com/data/2.5/weather?id=" +
+    var cityApiUrl = "https://api-https.herokuapp.com/openweathermap/data/2.5/weather?id=" +
         cityElem.getAttribute("data-id") +
         "&APPID=" + keyApi;
 
